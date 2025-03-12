@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <ul>
+        <li th:each="book : ${books}">
+            <strong th:text="${book.title}"></strong> by <span th:text="${book.author}"></span> - $<span th:text="${book.price}"></span>
+        </li>
+    </ul>
+</body>
+</html>
