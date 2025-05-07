@@ -24,7 +24,7 @@ public class AuthController {
 
      @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String password, Model model) {
-        Optional<User> existingUser = userRepository.findByUsername(username);
+        Optional<User> existingUser = Optional.empty();
         if (existingUser.isPresent()) {
             model.addAttribute("message", "Username already exists!");
             return "register";
@@ -41,7 +41,7 @@ public class AuthController {
 
      @PostMapping("/login")
     public String loginUser(@RequestParam String username, @RequestParam String password, Model model) {
-        Optional<User> user = userRepository.findByUsername(username);
+        Optional<User> user = Optional.empty();
 
         if (user.isPresent() && user.get().getPassword().equals(password)) {
             String token = jwtUtil.generateToken(username);
