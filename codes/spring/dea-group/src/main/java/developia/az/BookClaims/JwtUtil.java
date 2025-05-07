@@ -16,16 +16,16 @@ public class JwtUtil {
 
     private final String SECRET_KEY = "mySecretKey";
 
-    public String generateToken(String username, String role, Long userId) {
+    public String generateToken(String username, String book, Long userId) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("role", role);
+        claims.put("book", book);
         claims.put("userId", userId);
 
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 1 saat
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) 
                 .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                 .compact();
     }
@@ -41,7 +41,7 @@ public class JwtUtil {
     }
 
     public String extractRole(String token) {
-        return extractAllClaims(token).get("role", String.class);
+        return extractAllClaims(token).get("book", String.class);
     }
 
     public Long extractUserId(String token) {
@@ -58,7 +58,11 @@ public class JwtUtil {
         return expiration.before(new Date());
     }
 
-	public String generateToken1(String username, String role, Long id) {
+	public String generateToken1(String username, String book , Long id) {
+ 		return null;
+	}
+
+	public String generateToken(String username, Long id) {
  		return null;
 	}
 }
