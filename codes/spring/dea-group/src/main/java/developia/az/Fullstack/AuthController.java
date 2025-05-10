@@ -25,7 +25,7 @@ public class AuthController {
      @PostMapping("/register")
     public String registerUser(@RequestParam String username, @RequestParam String password, Model model) {
         Optional<User> existingUser = Optional.empty();
-        if (existingUser.isPresent()) {
+        (existingUser.isPresent()) {
             model.addAttribute("message", "Username already exists!");
             return "register";
         }
