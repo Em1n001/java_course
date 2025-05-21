@@ -22,7 +22,6 @@ public class User {
         this.password = password;
     }
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -31,4 +30,12 @@ public class User {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+	public static Object withDefaultPasswordEncoder() {
+		return null;
+	}
+
+	public Object username(String string) {
+		return null;
+	}
 }
