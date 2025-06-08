@@ -2,6 +2,7 @@ package com.example.bookapp.model;
 
 import jakarta.persistence.*;
 
+@Table
 @Entity
 public class Book {
     
@@ -13,7 +14,7 @@ public class Book {
     private String author;
     private int year;
 
-     public Book() {}
+    public Book() {}
 
     public Book(String title, String author, int year) {
         this.title = title;
@@ -21,7 +22,7 @@ public class Book {
         this.year = year;
     }
 
-     public Long getId() { return id; }
+    public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
     public String getTitle() { return title; }
