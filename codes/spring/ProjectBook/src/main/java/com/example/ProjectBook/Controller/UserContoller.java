@@ -16,7 +16,7 @@ public class UserContoller {
 	private UserService userservice;
 	
 	
-@PostMapping(path="/add")
+@PostMapping(path="/register")
 	public void create(@RequestBody UserRequestDTO dto) {
 	
 	userservice.add(dto);
